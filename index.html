@@ -1,79 +1,121 @@
 <!doctype html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Le Bon Quotidien : des idées pratiques, des comparatifs simples et des sélections pour mieux choisir au quotidien.">
-<meta name="theme-color" content="#f6f4ef">
-<title>Le Bon Quotidien — Les bons choix, simplement</title>
-<style>
-:root{--ink:#20251f;--muted:#697168;--paper:#f6f4ef;--card:#fff;--green:#355b45;--lime:#dce8d8;--line:#e6e5de;--gold:#e7bd72}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
-a{color:inherit}button,input{font:inherit}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
-header{padding:22px 0;border-bottom:1px solid var(--line);background:#f6f4ef}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:850;font-size:1.2rem;letter-spacing:-.04em;text-decoration:none}.brand span{color:var(--green)}nav{display:flex;gap:24px}nav a{text-decoration:none;color:var(--muted);font-size:.92rem}nav a:hover{color:var(--green)}
-.hero{padding:76px 0 64px;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
-.eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--green);font-size:.78rem;font-weight:800;text-transform:uppercase;letter-spacing:.13em}
-h1{font-size:clamp(2.7rem,6vw,5.2rem);line-height:.99;letter-spacing:-.065em;margin:18px 0 22px;max-width:720px}
-.hero p{font-size:1.12rem;color:var(--muted);max-width:570px}
-.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-block;padding:13px 20px;border-radius:999px;background:var(--green);color:white;text-decoration:none;font-weight:750;border:1px solid var(--green)}.btn.secondary{background:transparent;color:var(--green)}
-.hero-art{min-height:350px;border-radius:30px;background:linear-gradient(145deg,#dce8d8,#edf0e7 55%,#e8d9c4);position:relative;overflow:hidden;padding:28px;display:flex;align-items:end}
-.art-card{background:rgba(255,255,255,.82);backdrop-filter:blur(8px);padding:22px;border-radius:20px;max-width:260px;box-shadow:0 16px 45px #33452a18}.art-card strong{display:block;font-size:1.25rem;line-height:1.2}.sun{position:absolute;width:190px;height:190px;border-radius:50%;background:#e8c98f;right:35px;top:30px}.plant{position:absolute;right:55px;bottom:40px;font-size:8rem;filter:drop-shadow(0 10px 12px #53634a25)}
-section{padding:52px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:24px}h2{font-size:clamp(1.8rem,3vw,2.7rem);letter-spacing:-.045em;line-height:1.08;margin:8px 0}.section-head p{margin:0;color:var(--muted);max-width:470px}
-.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.cat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;text-decoration:none;transition:.2s}.cat:hover,.product:hover{transform:translateY(-3px);box-shadow:0 12px 30px #2633260c}.cat .emoji{font-size:1.8rem}.cat strong{display:block;margin-top:12px}.cat small{color:var(--muted)}
-.toolbar{display:flex;gap:12px;flex-wrap:wrap;margin:20px 0 24px}.toolbar input{flex:1;min-width:220px;border:1px solid var(--line);background:white;border-radius:999px;padding:12px 18px;outline-color:var(--green)}.filter{border:1px solid var(--line);background:white;border-radius:999px;padding:10px 15px;color:var(--muted);cursor:pointer}.filter.active{background:var(--green);color:white;border-color:var(--green)}
-.products{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.product{background:white;border:1px solid var(--line);border-radius:20px;overflow:hidden;transition:.2s}.product-visual{height:170px;background:linear-gradient(135deg,#e9eee5,#f4e9d8);display:grid;place-items:center;font-size:4rem}.product:nth-child(3n+2) .product-visual{background:linear-gradient(135deg,#eee7dc,#e4e9df)}.product:nth-child(3n) .product-visual{background:linear-gradient(135deg,#e5ebe9,#f2e7dc)}.product-body{padding:20px}.tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--green);font-weight:800}.product h3{margin:8px 0;font-size:1.18rem;line-height:1.25}.product p{color:var(--muted);font-size:.93rem;margin:0 0 16px}.product a{font-weight:750;color:var(--green);text-decoration:none}.product a:hover{text-decoration:underline}
-.note{background:var(--lime);border-radius:20px;padding:24px 26px;display:flex;gap:18px;align-items:flex-start}.note strong{display:block;margin-bottom:4px}.note p{margin:0;color:#526455}
-.newsletter{background:#263c30;color:white;border-radius:26px;padding:38px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}.newsletter p{color:#d5dfd6;margin-bottom:0}.newsletter form{display:flex;gap:8px}.newsletter input{min-width:0;flex:1;padding:13px 16px;border:0;border-radius:999px}.newsletter button{border:0;border-radius:999px;padding:13px 18px;background:#dce8d8;color:#263c30;font-weight:800;cursor:pointer}
-footer{padding:35px 0 50px;color:var(--muted);font-size:.88rem}footer .foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:22px}.disclosure{font-size:.82rem;max-width:760px}
-.empty{grid-column:1/-1;color:var(--muted);padding:25px;text-align:center}
-@media(max-width:800px){.hero{grid-template-columns:1fr;padding:54px 0}.hero-art{min-height:260px}.categories{grid-template-columns:repeat(2,1fr)}.products{grid-template-columns:repeat(2,1fr)}.newsletter{grid-template-columns:1fr}}
-@media(max-width:540px){nav{gap:12px}nav a{font-size:.82rem}.products{grid-template-columns:1fr}.section-head{display:block}.newsletter{padding:26px}.newsletter form{flex-direction:column}.newsletter button{width:100%}.wrap{width:min(100% - 28px,1120px)}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Le Bon Quotidien : des guides pratiques et des conseils simples pour choisir les objets utiles à la maison, en cuisine et au quotidien.">
+  <title>Le Bon Quotidien — Des choix plus simples, chaque jour</title>
+  <style>
+    :root{--ink:#1f2933;--muted:#65727e;--cream:#faf8f3;--paper:#fff;--green:#285b4a;--mint:#e8f1eb;--line:#e7e5df;--gold:#e5b85c}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--cream);color:var(--ink);font:16px/1.65 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:var(--green)} .wrap{width:min(1100px,92%);margin:auto}
+    header{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}.brand{font-weight:850;font-size:1.2rem;letter-spacing:-.04em;color:var(--green);text-decoration:none}
+    nav{display:flex;gap:18px;flex-wrap:wrap}nav a{text-decoration:none;color:var(--ink);font-size:.92rem}
+    .hero{padding:64px 0 52px;background:linear-gradient(120deg,#edf4ed,#faf8f3 65%)}.eyebrow{text-transform:uppercase;letter-spacing:.14em;color:var(--green);font-size:.75rem;font-weight:800}
+    h1{font-size:clamp(2.2rem,6vw,4.2rem);line-height:1.05;letter-spacing:-.055em;max-width:780px;margin:12px 0 18px}.hero p{max-width:650px;color:var(--muted);font-size:1.12rem}
+    .btn{display:inline-block;background:var(--green);color:white;text-decoration:none;padding:12px 18px;border-radius:999px;font-weight:700;margin-top:12px}
+    .notice{background:#fff8e8;border:1px solid #f0dfb8;padding:14px 16px;border-radius:12px;color:#5e4b25;font-size:.9rem;margin:24px auto}
+    section{padding:48px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:22px}h2{font-size:clamp(1.7rem,4vw,2.4rem);line-height:1.15;letter-spacing:-.04em;margin:0} .sub{color:var(--muted);max-width:650px;margin:8px 0 0}
+    .filters{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0}.filter{border:1px solid var(--line);background:white;border-radius:999px;padding:8px 13px;cursor:pointer;color:var(--ink)}.filter.active{background:var(--green);color:white;border-color:var(--green)}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:white;border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;min-height:230px;box-shadow:0 5px 18px #172b2208}
+    .tag{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--green);font-weight:800}.card h3{line-height:1.25;margin:10px 0}.card p{color:var(--muted);margin:0 0 14px;font-size:.94rem}.read{margin-top:auto;font-weight:750;text-decoration:none}
+    .guide{background:white;border:1px solid var(--line);border-radius:18px;padding:24px;margin:14px 0}.guide h3{margin:0 0 8px;font-size:1.25rem}.guide p{margin:8px 0;color:#45515b}.guide ul{padding-left:22px}.guide li{margin:5px 0}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:18px}.panel{background:var(--mint);border-radius:16px;padding:22px}.panel h3{margin-top:0}
+    footer{background:#1e332c;color:#eaf1ed;padding:36px 0;margin-top:30px}footer a{color:#eaf1ed}footer p{color:#c6d5cd;font-size:.9rem}.footlinks{display:flex;gap:16px;flex-wrap:wrap}
+    .small{font-size:.86rem;color:var(--muted)}.placeholder{border:1px dashed #c9c4b8;background:#fbfaf7;padding:12px;border-radius:10px;font-size:.9rem}
+    @media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.two{grid-template-columns:1fr}.nav{align-items:flex-start;flex-direction:column}}
+    @media(max-width:540px){.grid{grid-template-columns:1fr}.hero{padding:46px 0 36px}nav{gap:12px}}
+  </style>
 </head>
 <body>
 <header><div class="wrap nav">
-<a class="brand" href="#">LE BON <span>QUOTIDIEN.</span></a>
-<nav aria-label="Navigation principale"><a href="#categories">Rubriques</a><a href="#selections">Sélections</a><a href="#apropos">À propos</a></nav>
+  <a class="brand" href="#accueil">Le Bon Quotidien</a>
+  <nav aria-label="Navigation principale">
+    <a href="#guides">Guides</a><a href="#methodes">Nos conseils</a><a href="#apropos">À propos</a><a href="#contact">Contact</a>
+  </nav>
 </div></header>
-<main>
-<div class="wrap hero">
-<div><span class="eyebrow">✦ Mieux choisir, au quotidien</span>
-<h1>Les bons choix.<br>En toute simplicité.</h1>
-<p>Des idées utiles, des pistes pour comparer et des sélections pensées pour rendre la vie de tous les jours un peu plus facile.</p>
-<div class="actions"><a class="btn" href="#selections">Voir les sélections</a><a class="btn secondary" href="#categories">Explorer les rubriques</a></div></div>
-<div class="hero-art"><div class="sun"></div><div class="plant">🌿</div><div class="art-card"><span class="eyebrow">Le réflexe malin</span><strong>Moins chercher.<br>Mieux choisir.</strong><p style="font-size:.9rem;margin:8px 0 0;color:#697168">Des repères clairs pour les achats du quotidien.</p></div></div>
-</div>
-<div class="wrap"><div class="note"><div style="font-size:1.7rem">💡</div><div><strong>Notre promesse</strong><p>Des conseils accessibles et des recommandations utiles, sans jargon ni promesses exagérées. Nous privilégions la clarté et l'utilité.</p></div></div></div>
-<section id="categories"><div class="wrap">
-<div class="section-head"><div><span class="eyebrow">Explorer</span><h2>À chacun ses bonnes idées</h2></div><p>Retrouve bientôt des guides pratiques et des sélections classées par thème.</p></div>
-<div class="categories">
-<a class="cat" href="#selections" data-jump="maison"><span class="emoji">🏡</span><strong>Maison & déco</strong><small>Rendre son intérieur pratique</small></a>
-<a class="cat" href="#selections" data-jump="cuisine"><span class="emoji">🍳</span><strong>Cuisine</strong><small>Les accessoires qui simplifient</small></a>
-<a class="cat" href="#selections" data-jump="tech"><span class="emoji">🎧</span><strong>High-tech utile</strong><small>La technologie au quotidien</small></a>
-<a class="cat" href="#selections" data-jump="astuces"><span class="emoji">🌱</span><strong>Vie pratique</strong><small>Petites astuces, grandes idées</small></a>
-</div></div></section>
-<section id="selections"><div class="wrap">
-<div class="section-head"><div><span class="eyebrow">Nos recommandations</span><h2>Les sélections du moment</h2></div><p>Des fiches éditoriales à compléter avec des produits réellement vérifiés avant publication.</p></div>
-<div class="toolbar"><input id="search" type="search" placeholder="Rechercher une idée…" aria-label="Rechercher"><button class="filter active" data-filter="tout">Tout</button><button class="filter" data-filter="maison">Maison</button><button class="filter" data-filter="cuisine">Cuisine</button><button class="filter" data-filter="tech">High-tech</button><button class="filter" data-filter="astuces">Vie pratique</button></div>
-<div class="products" id="products">
-<article class="product" data-category="maison"><div class="product-visual">🧺</div><div class="product-body"><span class="tag">Maison</span><h3>Les essentiels pour mieux organiser son entrée</h3><p>Un guide d'idées pour gagner de la place et garder les objets du quotidien à portée de main.</p><a href="mailto:bonjour@votredomaine.fr?subject=Guide%20organisation%20entr%C3%A9e">Découvrir le guide →</a></div></article>
-<article class="product" data-category="cuisine"><div class="product-visual">🥣</div><div class="product-body"><span class="tag">Cuisine</span><h3>Les accessoires qui font gagner du temps</h3><p>Les critères à regarder avant de choisir des ustensiles simples et durables.</p><a href="mailto:bonjour@votredomaine.fr?subject=Guide%20accessoires%20cuisine">Découvrir le guide →</a></div></article>
-<article class="product" data-category="tech"><div class="product-visual">🔌</div><div class="product-body"><span class="tag">High-tech</span><h3>Les petits équipements vraiment pratiques</h3><p>Comment comparer les fonctionnalités, la compatibilité et la qualité avant achat.</p><a href="mailto:bonjour@votredomaine.fr?subject=Guide%20high-tech">Découvrir le guide →</a></div></article>
-<article class="product" data-category="astuces"><div class="product-visual">🌿</div><div class="product-body"><span class="tag">Vie pratique</span><h3>Des habitudes simples pour moins gaspiller</h3><p>Des pistes concrètes pour mieux utiliser ce que l'on possède déjà.</p><a href="mailto:bonjour@votredomaine.fr?subject=Astuces%20quotidien">Découvrir le guide →</a></div></article>
-<article class="product" data-category="maison"><div class="product-visual">💡</div><div class="product-body"><span class="tag">Maison</span><h3>Éclairage : les points à comparer</h3><p>Température de couleur, consommation et usage : les bases pour faire un choix adapté.</p><a href="mailto:bonjour@votredomaine.fr?subject=Guide%20%C3%A9clairage">Découvrir le guide →</a></div></article>
-<article class="product" data-category="tech"><div class="product-visual">🔋</div><div class="product-body"><span class="tag">High-tech</span><h3>Bien choisir une batterie externe</h3><p>Capacité, puissance et connectique : les critères à vérifier selon ses appareils.</p><a href="mailto:bonjour@votredomaine.fr?subject=Guide%20batterie%20externe">Découvrir le guide →</a></div></article>
-</div></div></section>
-<section id="apropos"><div class="wrap"><div class="newsletter"><div><span class="eyebrow" style="color:#dce8d8">Le Bon Quotidien</span><h2>Des choix plus simples, chaque jour.</h2><p>Le site évolue avec des guides et des sélections vérifiés. Pas de fausses bonnes affaires, ni de classement payé présenté comme indépendant.</p></div><div><strong>Une question ou une suggestion ?</strong><p>Écris-nous : bonjour@votredomaine.fr</p><p style="font-size:.82rem">Le formulaire d'inscription à une newsletter sera ajouté uniquement après choix d'un service et mise en place du consentement requis.</p></div></div></div></section>
+
+<main id="accueil">
+  <div class="hero"><div class="wrap">
+    <div class="eyebrow">Mieux choisir, sans se compliquer la vie</div>
+    <h1>Des choix plus simples pour un quotidien plus malin.</h1>
+    <p>Des repères pratiques pour comparer, entretenir et choisir les objets qui rendent vraiment service à la maison, en cuisine et au quotidien.</p>
+    <a class="btn" href="#guides">Découvrir les guides</a>
+  </div></div>
+
+  <div class="wrap">
+    <div class="notice"><strong>Transparence :</strong> certains liens de recommandation pourront devenir des liens affiliés. Si vous achetez en passant par ces liens, le site pourra recevoir une commission, sans coût supplémentaire pour vous. Les liens affiliés ne sont pas encore activés.</div>
+  </div>
+
+  <section id="guides"><div class="wrap">
+    <div class="section-head"><div><div class="eyebrow">À lire</div><h2>Nos guides pratiques</h2><p class="sub">Des articles pour vous aider à définir vos besoins avant de choisir. Nous privilégions les critères utiles plutôt que les achats impulsifs.</p></div></div>
+    <div class="filters" aria-label="Filtrer les guides">
+      <button class="filter active" data-filter="Tous">Tous</button><button class="filter" data-filter="Maison">Maison</button><button class="filter" data-filter="Cuisine">Cuisine</button><button class="filter" data-filter="Organisation">Organisation</button><button class="filter" data-filter="Entretien">Entretien</button>
+    </div>
+    <div class="grid" id="cards">
+      <article class="card" data-cat="Cuisine"><span class="tag">Cuisine · Guide 1</span><h3>Bien choisir une bouilloire pour la maison</h3><p>Capacité, puissance, entretien et sécurité : les critères à regarder avant l'achat.</p><a class="read" href="#g1">Lire le guide →</a></article>
+      <article class="card" data-cat="Maison"><span class="tag">Maison · Guide 2</span><h3>Quel aspirateur choisir selon son logement ?</h3><p>Comprendre les différences entre traîneau, balai et robot, sans se fier uniquement aux watts.</p><a class="read" href="#g2">Lire le guide →</a></article>
+      <article class="card" data-cat="Organisation"><span class="tag">Organisation · Guide 3</span><h3>Organiser un petit espace de rangement</h3><p>Mesurer, trier et exploiter la hauteur avant d'acheter des boîtes ou des étagères.</p><a class="read" href="#g3">Lire le guide →</a></article>
+      <article class="card" data-cat="Entretien"><span class="tag">Entretien · Guide 4</span><h3>Entretenir ses appareils électroménagers</h3><p>Les gestes simples à vérifier dans la notice pour prolonger leur durée de vie.</p><a class="read" href="#g4">Lire le guide →</a></article>
+      <article class="card" data-cat="Cuisine"><span class="tag">Cuisine · Guide 5</span><h3>Choisir une poêle adaptée à sa cuisine</h3><p>Matériaux, compatibilité avec les plaques et habitudes de cuisson : les bons points de départ.</p><a class="read" href="#g5">Lire le guide →</a></article>
+      <article class="card" data-cat="Maison"><span class="tag">Maison · Guide 6</span><h3>Éclairage : améliorer le confort d'une pièce</h3><p>Température de couleur, intensité et emplacement des sources lumineuses.</p><a class="read" href="#g6">Lire le guide →</a></article>
+      <article class="card" data-cat="Organisation"><span class="tag">Organisation · Guide 7</span><h3>Préparer une liste d'achats vraiment utile</h3><p>Définir un besoin, fixer un budget et éviter les doublons à la maison.</p><a class="read" href="#g7">Lire le guide →</a></article>
+      <article class="card" data-cat="Entretien"><span class="tag">Entretien · Guide 8</span><h3>Nettoyer sans abîmer les surfaces</h3><p>Pourquoi il faut identifier le matériau et tester un produit sur une zone discrète.</p><a class="read" href="#g8">Lire le guide →</a></article>
+      <article class="card" data-cat="Maison"><span class="tag">Maison · Guide 9</span><h3>Comparer deux produits avant de décider</h3><p>Une méthode simple pour comparer le prix total, les fonctions utiles et la garantie.</p><a class="read" href="#g9">Lire le guide →</a></article>
+      <article class="card" data-cat="Cuisine"><span class="tag">Cuisine · Guide 10</span><h3>Équiper une cuisine de départ</h3><p>Commencer par quelques essentiels polyvalents plutôt que multiplier les gadgets.</p><a class="read" href="#g10">Lire le guide →</a></article>
+    </div>
+  </div></section>
+
+  <section id="methodes"><div class="wrap">
+    <div class="eyebrow">Notre méthode</div><h2>Des conseils avant les achats</h2>
+    <div class="two" style="margin-top:20px">
+      <div class="panel"><h3>1. Définir le besoin</h3><p>À quelle fréquence l'objet sera-t-il utilisé ? Pour combien de personnes ? Quelles contraintes de place, de bruit, d'entretien ou de budget faut-il prendre en compte ?</p></div>
+      <div class="panel"><h3>2. Comparer l'essentiel</h3><p>Nous invitons à comparer les caractéristiques réellement utiles, le coût d'usage, la disponibilité des pièces et les conditions de garantie.</p></div>
+    </div>
+  </div></section>
+
+  <section id="articles"><div class="wrap">
+    <div class="eyebrow">Les guides en détail</div><h2>Conseils à garder sous la main</h2>
+    <article class="guide" id="g1"><h3>1. Bien choisir une bouilloire pour la maison</h3><p>Commencez par la capacité : une petite bouilloire peut suffire pour une ou deux tasses, tandis qu'un foyer nombreux aura intérêt à choisir un volume adapté à ses usages. Vérifiez la lisibilité du niveau d'eau, la stabilité de la base et la facilité de nettoyage.</p><ul><li>Regardez la puissance et le temps de chauffe annoncé, sans oublier la consommation liée à la quantité chauffée.</li><li>Vérifiez l'arrêt automatique, la protection contre la chauffe à vide et la qualité de la poignée.</li><li>Si l'eau est calcaire chez vous, privilégiez un filtre amovible et un accès facile au fond de la cuve.</li></ul><p>Le bon choix est celui qui correspond à votre fréquence d'utilisation et qui se nettoie facilement.</p></article>
+    <article class="guide" id="g2"><h3>2. Quel aspirateur choisir selon son logement ?</h3><p>Un aspirateur traîneau peut convenir à un nettoyage régulier et approfondi. Un modèle balai est pratique pour les petits nettoyages et les logements où l'on souhaite ranger l'appareil facilement. Un robot peut entretenir les sols entre deux passages, mais ne remplace pas tous les nettoyages.</p><ul><li>Vérifiez le type de sols, la présence de tapis et les cheveux ou poils d'animaux.</li><li>Comparez le poids, le niveau sonore, l'autonomie réelle et le prix des consommables.</li><li>Pour un robot, regardez les contraintes de seuils, de câbles et de rangement au sol.</li></ul></article>
+    <article class="guide" id="g3"><h3>3. Organiser un petit espace de rangement</h3><p>Avant d'acheter des rangements, videz l'espace et regroupez les objets par usage. Mesurez la largeur, la profondeur et la hauteur disponibles, en tenant compte de l'ouverture des portes et des tiroirs.</p><ul><li>Placez les objets utilisés chaque jour à portée de main.</li><li>Utilisez des contenants transparents ou étiquetés pour éviter les recherches.</li><li>Exploitez la hauteur uniquement si les objets restent accessibles en sécurité.</li></ul></article>
+    <article class="guide" id="g4"><h3>4. Entretenir ses appareils électroménagers</h3><p>La notice du fabricant reste la référence pour les produits autorisés, les fréquences et les pièces démontables. Débranchez l'appareil avant tout nettoyage lorsque la notice le demande et ne mélangez jamais des produits ménagers.</p><ul><li>Nettoyez régulièrement les filtres et les zones de ventilation prévues à cet effet.</li><li>Évitez les abrasifs sur les surfaces fragiles.</li><li>Notez les opérations d'entretien récurrentes pour ne pas les oublier.</li></ul></article>
+    <article class="guide" id="g5"><h3>5. Choisir une poêle adaptée à sa cuisine</h3><p>Le choix dépend de vos habitudes : cuisson douce, saisie, plats mijotés ou usage quotidien. Vérifiez la compatibilité avec votre plaque, le poids de la poêle et les consignes d'entretien du fabricant.</p><ul><li>Une poêle lourde peut être stable mais moins agréable à manipuler.</li><li>Le diamètre doit correspondre à la taille du foyer et aux portions habituelles.</li><li>Respectez les températures et ustensiles recommandés pour préserver le revêtement.</li></ul></article>
+    <article class="guide" id="g6"><h3>6. Éclairage : améliorer le confort d'une pièce</h3><p>Un éclairage confortable combine souvent une lumière générale et des points lumineux adaptés aux activités. La température de couleur, exprimée en kelvins, influence la sensation de chaleur ou de neutralité de la lumière.</p><ul><li>Prévoyez un éclairage ciblé pour lire, cuisiner ou travailler.</li><li>Vérifiez le flux lumineux en lumens plutôt que de comparer uniquement les watts.</li><li>Évitez les reflets gênants sur les écrans et les plans de travail.</li></ul></article>
+    <article class="guide" id="g7"><h3>7. Préparer une liste d'achats vraiment utile</h3><p>Avant de chercher un produit, décrivez le problème qu'il doit résoudre. Vérifiez si un objet déjà présent peut remplir cette fonction, puis fixez un budget maximum réaliste.</p><ul><li>Classez les achats en indispensables, utiles et simplement agréables.</li><li>Ajoutez les coûts annexes : consommables, accessoires, livraison ou entretien.</li><li>Attendez quelques jours avant un achat non urgent pour vérifier qu'il répond à un vrai besoin.</li></ul></article>
+    <article class="guide" id="g8"><h3>8. Nettoyer sans abîmer les surfaces</h3><p>Le bois, la pierre naturelle, l'inox, le verre et les surfaces peintes ne réagissent pas tous de la même façon. Identifiez le matériau et consultez les recommandations du fabricant avant d'utiliser un produit.</p><ul><li>Testez d'abord sur une petite zone peu visible.</li><li>Utilisez un chiffon doux et évitez les éponges abrasives sur les finitions fragiles.</li><li>Ne mélangez jamais eau de Javel, acides ou autres produits ménagers.</li></ul></article>
+    <article class="guide" id="g9"><h3>9. Comparer deux produits avant de décider</h3><p>Une comparaison utile commence par une liste de trois à cinq critères prioritaires. Écartez les fonctions que vous n'utiliserez pas et comparez les prix à caractéristiques et conditions équivalentes.</p><ul><li>Comparez le prix total, accessoires compris.</li><li>Vérifiez la garantie, le service après-vente et la disponibilité des pièces.</li><li>Lisez plusieurs avis récents en repérant les problèmes récurrents plutôt qu'une note isolée.</li></ul></article>
+    <article class="guide" id="g10"><h3>10. Équiper une cuisine de départ</h3><p>Pour commencer, privilégiez quelques objets polyvalents et faciles à nettoyer : une casserole, une poêle adaptée à vos plaques, un couteau de cuisine bien entretenu, une planche stable et des ustensiles de base.</p><ul><li>Choisissez des tailles adaptées au nombre de personnes.</li><li>Évitez les appareils spécialisés tant que leur usage n'est pas régulier.</li><li>Vérifiez le rangement disponible avant d'acheter des équipements volumineux.</li></ul></article>
+  </div></section>
+
+  <section id="apropos"><div class="wrap two">
+    <div><div class="eyebrow">À propos</div><h2>Le Bon Quotidien</h2><p>Le Bon Quotidien est un site indépendant de conseils pratiques. Notre objectif est d'aider les lecteurs à mieux définir leurs besoins et à comparer les critères importants avant un achat.</p><p>Les contenus sont informatifs et ne remplacent pas les consignes des fabricants ni les conseils d'un professionnel lorsque ceux-ci sont nécessaires.</p></div>
+    <div class="panel"><h3>Comment le site peut-il se financer ?</h3><p>Le site pourra utiliser des liens affiliés. Lorsqu'un lecteur achète après avoir suivi un tel lien, une commission peut être versée au site. Cela ne modifie pas le prix payé par le lecteur. Les liens concernés seront signalés clairement.</p><p><strong>À ce jour, aucun lien affilié n'est activé sur cette version.</strong></p></div>
+  </div></section>
+
+  <section id="contact"><div class="wrap">
+    <div class="eyebrow">Nous contacter</div><h2>Une question ou une suggestion ?</h2>
+    <p>Pour le moment, l'adresse de contact doit être renseignée par le responsable du site avant publication définitive.</p>
+    <div class="placeholder"><strong>À compléter :</strong> remplacez l'adresse fictive ou provisoire par une adresse e-mail que vous consultez réellement.</div>
+  </div></section>
 </main>
-<footer><div class="wrap foot"><div><strong>LE BON QUOTIDIEN.</strong><p class="disclosure">Transparence : certains liens du site pourront être des liens affiliés. Si tu achètes via ces liens, le site peut recevoir une commission, sans surcoût pour toi. Les liens affiliés devront être clairement signalés à proximité des recommandations.</p></div><div><a href="mailto:bonjour@votredomaine.fr">Contact</a> · <a href="#apropos">À propos</a><p>© <span id="year"></span> Le Bon Quotidien</p></div></div></footer>
+
+<footer><div class="wrap">
+  <div class="footlinks"><a href="#apropos">À propos</a><a href="#contact">Contact</a><a href="#mentions">Mentions légales</a><a href="#confidentialite">Confidentialité</a></div>
+  <p id="mentions"><strong>Mentions légales — informations à compléter avant exploitation commerciale :</strong> nom ou raison sociale de l'éditeur, statut, adresse de l'éditeur, adresse e-mail de contact, directeur ou directrice de publication, hébergeur et coordonnées de l'hébergeur. Ne publiez pas ces mentions avec des informations inventées.</p>
+  <p id="confidentialite"><strong>Confidentialité :</strong> cette version statique ne comporte ni compte utilisateur, ni formulaire, ni outil de mesure d'audience intégré. Si vous ajoutez ultérieurement des statistiques, publicités, formulaires ou cookies non essentiels, mettez à jour cette information et les choix de consentement requis.</p>
+  <p>© <span id="year"></span> Le Bon Quotidien. Tous droits réservés.</p>
+</div></footer>
 <script>
-const cards=[...document.querySelectorAll('.product')], buttons=[...document.querySelectorAll('.filter')], search=document.querySelector('#search');
-let category='tout';
-function update(){const q=search.value.toLocaleLowerCase('fr');let count=0;cards.forEach(card=>{const show=(category==='tout'||card.dataset.category===category)&&card.innerText.toLocaleLowerCase('fr').includes(q);card.hidden=!show;if(show)count++});let empty=document.querySelector('.empty');if(!count&&!empty){empty=document.createElement('p');empty.className='empty';empty.textContent='Aucun résultat. Essaie un autre mot-clé.';document.querySelector('#products').append(empty)}if(count&&empty)empty.remove()}
-buttons.forEach(b=>b.addEventListener('click',()=>{category=b.dataset.filter;buttons.forEach(x=>x.classList.toggle('active',x===b));update()}));
-search.addEventListener('input',update);
-document.querySelectorAll('[data-jump]').forEach(a=>a.addEventListener('click',()=>{category=a.dataset.jump;buttons.forEach(x=>x.classList.toggle('active',x.dataset.filter===category));update()}));
-document.querySelector('#year').textContent=new Date().getFullYear();
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const buttons = document.querySelectorAll('.filter');
+  const cards = document.querySelectorAll('#cards .card');
+  buttons.forEach(button => button.addEventListener('click', () => {
+    buttons.forEach(b => b.classList.remove('active'));
+    button.classList.add('active');
+    const filter = button.dataset.filter;
+    cards.forEach(card => card.hidden = filter !== 'Tous' && card.dataset.cat !== filter);
+  }));
 </script>
 </body></html>
